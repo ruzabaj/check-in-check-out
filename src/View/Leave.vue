@@ -5,11 +5,77 @@
             <div class="container">
                 <div class="request">
                     <div class="make-leave">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="float: left;">
+                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="float: left;">
                             <span>Make a leave request.</span> 
                         <img src="Page.png" class="page">
-                        </button>                
-                    </div>  
+                        </button>   -->
+                        <b-button v-b-modal.modal-1>Make a leave request.</b-button>
+                        <img src="Page.png" class="page">
+                    <b-modal id="modal-1" title="BootstrapVue">
+                    
+                    <div class="container">  
+                        <div class="modal-body">                      
+                                                   
+                                <div class="title">
+                                    <h4>Apply For Leave</h4>
+                                </div>
+                            <label for="leave category" class="heading ps-3">Leave Category</label>
+                            <div class="dropdown p-3"> 
+                                <b-dropdown id="dropdown-1" text="Dropdown Button" class="m-md-2" style="color:transparent; width:100%"><span class="caret"></span>
+                                    <b-dropdown-item>Sick leave</b-dropdown-item>
+                                    <b-dropdown-item>Maternity Leave</b-dropdown-item>
+                                    <b-dropdown-item>Paternity Leave</b-dropdown-item>
+                                </b-dropdown>
+
+                            </div>
+
+                            <label for="leave type" class="heading ps-3">Leave Type</label>
+                            <div class="dropdown p-3"> 
+                                <b-dropdown id="dropdown-1" text="Dropdown Button" class="m-md-2" style="color:transparent; width:100%"><span class="caret"></span>
+                                    <b-dropdown-item>Half Day</b-dropdown-item>
+                                    <b-dropdown-item>Full Day</b-dropdown-item>
+                                    <b-dropdown-item>Custom</b-dropdown-item>
+                                </b-dropdown>
+
+                            </div>
+                            <div class="from">
+                                <div class="heading">
+                                    <label for="from">From</label>
+                                </div>
+                                <Datepicker/>
+                                
+                                <!-- <span class="input-group-text bg-white">
+                                    <i class="fas fa-calendar-alt" id="icon"></i>
+                                    </span> -->
+                            </div>
+    
+                            <div class="to">
+                                <div class="heading">
+                                    <label for="to">To</label>
+                                </div>
+                                <Datepicker/>
+                                <!-- <span class="input-group-text bg-white">
+                                    <i class="fas fa-calendar-alt" id="icon"></i>
+                                    </span> -->
+                            </div>
+                            <div class="row ">
+                                <div class="heading">
+                                    <label for="subject">Reason</label>
+                                </div>
+                                <div class="reason">
+                                    <textarea id="reason" class="reasons" name="reason" placeholder="Write something.."
+                                        style="height:100px; width: 100%;"></textarea>
+                                </div>
+                            </div>
+                            <div class="buttons d-flex">
+                                <button class="apply me-2">Apply</button>
+                                <button class="cancel ms-2">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    </b-modal>              
+                    </div> 
                 </div>     
                 
                 <div class="leave">
@@ -138,8 +204,12 @@
 </template>
 
 <script>
+import Datepicker from 'vuejs-datepicker';
 export default {
-    name:'leaveS'
+    name:'leaveS',
+     components: {
+    Datepicker
+  }
 }
 </script>
 
@@ -382,8 +452,77 @@ tbody .reasons{
     color: #FFFFFF;
     text-align: center;
 }
+
 </style>
 
 <style>
+.element.style{
+    padding: 16px 0 0 0;
+}
+.pagination{
+    margin-top: 02%;
+    margin-right: 30px;
+    float: right;
+    border: none;
+    outline: none;
+}
+.pagination ul{
+    list-style: none;
+}
+.pagination a{
+    float: right;
+}
+.pagination a:hover{
+    background-color: #E2E8F0;
+}
+.pagination a:active{
+    background: #7CB342;
+    border-radius: 29px;
+    color: white;
+}
 
+/* Footer part */
+.footer{
+    margin-top: 03%;
+}
+main p{
+    font-weight: 500;
+    font-size: 16px;
+    line-height:24px;
+    color: #B3B5C8;
+    text-align: center;
+}
+</style>
+
+<style>
+#dropdown-1__BV_toggle_{
+    width: 100%;
+    background: transparent !important;
+    background: #FFFFFF;
+    border: 0.75px solid #7CB342;
+    box-shadow: 0px 12px 25px rgba(114, 114, 114, 0.05);
+    border-radius: 8px;
+}
+#dropdown-1__BV_toggle_ .dropdown-menu{
+    width: 100%;
+}
+.modal-header, .modal-footer{
+    display: none !important;
+}
+.apply{
+    width: 178.15px;
+    height: 56px;
+    background: linear-gradient(270.25deg, #5F6C37 -1.9%, #7CB342 99.74%);
+    box-shadow: 0px 3px 5px #9CB087;
+    border-radius: 10px;
+    color: #FFFFFF;
+}
+.cancel{
+    background: #FFFFFF;
+    box-shadow: 0px 7px 23px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    width: 178px;
+    height: 56spx;
+    color:  #7CB342;
+}
 </style>

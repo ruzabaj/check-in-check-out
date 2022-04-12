@@ -4,7 +4,9 @@
             <div class="left-side d-flex">
                 <div class="bar">
                     <label for="nav-toggle">
-                        <span class="fas fa-bars"></span>
+                        <span>
+                            <img src="bar.svg" alt="" @click="openSidebar()">
+                        </span>
                     </label>
                 </div>
                 <img class="logo" src="susankya logo 1.jpg" alt="logo of susankya">
@@ -19,7 +21,7 @@
             <div class="right-side">
                 <a href="#" class="link m-2"><img class="profile" src="Profile.svg" alt="Profile-pic"></a>
                 <a href="#" class="link m-2"><img class="notification" src="Vector.jpg" alt="bell"></a>
-                <a href="#" class="link m-2"> <img class="cross" src="Page 1.jpg" alt="X"></a>
+                <!-- <a href="#" class="link m-2"> <img class="cross" src="Page 1.jpg" alt="X"></a> -->
             </div>
         </nav>
     

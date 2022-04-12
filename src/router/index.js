@@ -9,7 +9,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'DashBoard',
+    name: 'Dashboard',
     component: Home,
     meta: {
       auth: false
