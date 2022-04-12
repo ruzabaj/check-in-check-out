@@ -4,7 +4,7 @@
             <div class="cards d-flex justify-content-around">
                 <div class="card-singles">
                     <div style="display: flex; align-items: center; justify-content: space-between;">
-                        <img class="diagram" src="MicrosoftTeams-image.png">
+                        <img class="diagram" src="dashboard-projects.svg">
                         <div style="padding-right: 20px;">
                             <div class="sub-title mt-1">Total Projects</div> 
                             <span class="numbers p-3">9</span>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="card-singles">
                     <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <img class="leave" src="MicrosoftTeams-image1"> 
+                    <img class="leave" src="dashboard-leave.svg"> 
                         <div style="padding-right: 10px;">
                             <div class=" sub-title mt-1"> Total Leave Days</div>
                             <span class="numbers  p-3">5</span>                          

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../View/Dashboard'
 import Login from '../View/Auth/Login'
+import Leave from '../View/Leave'
 
 Vue.use(VueRouter)
 
@@ -10,6 +11,14 @@ const routes = [
     path: '/',
     name: 'DashBoard',
     component: Home,
+    meta: {
+      auth: false
+    }
+  },
+  {
+    path: '/leave',
+    name: 'Leave',
+    component : Leave,
     meta: {
       auth: false
     }

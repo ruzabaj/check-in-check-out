@@ -139,7 +139,7 @@
 
 <script>
 export default {
-    name:'leaveSeries'
+    name:'leaveS'
 }
 </script>
 
