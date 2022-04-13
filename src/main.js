@@ -4,6 +4,7 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import router from './router'
 import store from './store'
 import api from '@/handler/axios'
+import auth from '@/package/auth'
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
@@ -16,6 +17,7 @@ Vue.use(IconsPlugin)
 
 Vue.config.productionTip = false
 Vue.prototype.$api = api
+Vue.use(auth)
 
 router.beforeEach(async (to, from, next) => {
   if (to.matched.some(record => record.meta.auth)) {
@@ -24,10 +26,12 @@ router.beforeEach(async (to, from, next) => {
       store.commit('SET_USER', JSON.parse(localStorage.getItem('user')));
       store.commit('CHECK_AUTH', true);
       next()
+
+      if(to.name === 'LoginScreen') {
+        next({path: "/"})
+      }
     }
-    // else if(to.name === 'LoginScreen' && authentication) {
-    //   next({path: "/"})
-    // }
+    
     else {
       next({
         path: "/login"

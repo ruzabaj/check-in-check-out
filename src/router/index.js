@@ -12,7 +12,7 @@ const routes = [
     name: 'Dashboard',
     component: Home,
     meta: {
-      auth: false
+      auth: true
     }
   },
   {
@@ -20,7 +20,7 @@ const routes = [
     name: 'Leave',
     component : Leave,
     meta: {
-      auth: false
+      auth: true
     }
   },
 
@@ -39,7 +39,9 @@ const routes = [
         next()
       }
     }
-  }
+  },
+
+  
 ]
 
 const router = new VueRouter({

@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <!-- <template v-if="!$store.getters.authenticated"> -->
+    <template v-if="!$store.getters.authenticated">
       <!-- Main content start -->
-      <!-- <main class="main-content">
+      <main class="main-content">
         <router-view/>
-      </main> -->
+      </main>
       <!-- Main content end -->
-    <!-- </template> -->
+    </template>
     
-    <template >
+    <template v-else>
       <!-- App bar start -->
       <nav class="app-bar">
         <AppBar/>
@@ -35,6 +35,7 @@
 // import AppBar from './layout/Appbar.vue'
 import AppBar from './layout/Appbar.vue/Appbar.vue';
 import SideBar from './layout/SideBar.vue'
+// import { CHECK_AUTH } from './store/modules/auth';
 
 export default {
   name: 'App',
@@ -44,12 +45,18 @@ export default {
   },
   data: () => ({
     auth: false,
+    user: JSON.parse(localStorage.getItem('user'))
   }),
   
   mounted() {
     if(!this.$store.getters.authenticated) {
       this.redirectIfLoggedIn()
-    } else {
+    }
+    else if(this.user.token) {
+      this.$store.commit('CHECK_AUTH', true);
+      this.auth = true;
+    } 
+    else {
       this.auth = true
     }
   },

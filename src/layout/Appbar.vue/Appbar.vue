@@ -19,9 +19,10 @@
             </div>
 
             <div class="right-side">
-                <a href="#" class="link m-2"><img class="profile" src="Profile.svg" alt="Profile-pic"></a>
+                <a href="#" class="dropdown-menu m-2"><img class="profile" src="Profile.svg" alt="Profile-pic" @click="dropdown()"></a>
+                <Dropdown title="logout" :items="logout"/>
                 <a href="#" class="link m-2"><img class="notification" src="Vector.jpg" alt="bell"></a>
-                <!-- <a href="#" class="link m-2"> <img class="cross" src="Page 1.jpg" alt="X"></a> -->
+                <a href="#" class="link m-2"> <img class="cross" src="topbar-cross.svg" alt="X"></a> 
             </div>
         </nav>
     
@@ -29,12 +30,35 @@
 </template>
 
 <script>
+import dropdown from '../component/dropdown.vue'
+// import { component } from 'vue/types/umd'
+
 export default {
-    name:'AppBar'
+    name:'AppBar',
+    components: {
+        dropdown
+    },
+    data(){
+        return{
+            logout: [
+                {
+                    title: 'log-out',
+                    link: '#'
+                },
+                {
+                    title: 'cancel',
+                    link: '#'
+                }
+            ]
+        }
+    }
 }
 </script>
 
 <style>
+main p {
+    text-align: left !important;
+}
 .head-bar{
     width: 100%;
     height: 70px;

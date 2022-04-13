@@ -19,7 +19,7 @@
                     <div class="col-75">
                         <input type="text" id="fname" v-model="formdata.username" name="firstname" placeholder="Your email address">
                         <div class="validation">
-                        <span v-if="validation.username">{{validation.username}}</span>
+                        <span v-if="validation.username">{{validation.username[0]}}</span>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-75">
                         <input type="password" v-model="formdata.password" id="pw" name="password" placeholder="">
-                        <div v-if="validation.password">{{validation.password}} </div>
+                        <div v-if="validation.password">{{validation.password[0]}} </div>
                     </div>
                     <div class="error-msg" v-if="this.validation.non_field_errors">{{this.validation.non_field_errors[0]}}</div>
                 </div>
@@ -70,14 +70,18 @@ export default {
     name: 'LoginScreen',
     data: ()=>({
         msg: 'This is Login Screen.',
-        formdata: {},
+        formdata: {
+            username: 'newfrontenduser',
+            password: 'User@123'
+        },
         validation: {},
         resStore: {}
     }),
     methods: {
         login() {
-            this.$store.dispatch('login', this.formdata).then(res => {
-                this.resStore = res
+            this.$store.dispatch('login', this.formdata).then( res => {
+                this.$router.push('/')
+                location.reload()
             }).catch(err => {
                 if(err.response.data) {
                     this.validation = {
@@ -166,6 +170,8 @@ input[type=text]{
     box-shadow: 0px 12px 25px rgba(114, 114, 114, 0.05);
     border-radius: 8px;
     outline: none;
+    text-align: left;
+    padding-left: 10px;
 }
 
 form input::placeholder {
@@ -180,6 +186,8 @@ input[type=password] {
     box-shadow: 0px 12px 25px rgba(114, 114, 114, 0.05);
     border-radius: 8px;
     outline: none;
+    text-align: left;
+    padding-left: 10px;
 }
 input[type=password]::placeholder{
     padding: 10px;

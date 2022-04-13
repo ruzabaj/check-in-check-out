@@ -4,7 +4,8 @@ import store from "../store/index"
 const api = {
   setHeaders() {
     const instance = axios.create({
-      baseURL: `http://localhost:8000/api/`,
+      // baseURL: `http://localhost:8000/api/`,
+      baseURL: `https://financecrm.susankya.com.np/api/`,
       // baseURL: `http://4239-103-163-182-236.ngrok.io`,
       headers: {
         "Content-Type": "application/json; charset=utf-8",

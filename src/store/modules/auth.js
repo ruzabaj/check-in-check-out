@@ -31,6 +31,10 @@ const actions = {
         return new Promise((resolve, reject) => {
             $api.post(`authuser/login`, formdata).then(res => {
                 Vue.auth.setToken(res)
+                if(res.token) {
+                    context.commit('CHECK_AUTH', true);
+                    context.commit('SET_USER', res);
+                }
                 resolve(res)
             }).catch(err => {
                 reject(err)

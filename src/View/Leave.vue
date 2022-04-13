@@ -42,7 +42,10 @@
                                 <div class="heading">
                                     <label for="from">From</label>
                                 </div>
-                                <Datepicker/>
+                                <div class="date-picker">
+                                    <Datepicker/>
+                                </div>
+                                
                                 
                                 <!-- <span class="input-group-text bg-white">
                                     <i class="fas fa-calendar-alt" id="icon"></i>
@@ -53,7 +56,9 @@
                                 <div class="heading">
                                     <label for="to">To</label>
                                 </div>
-                                <Datepicker/>
+                                <div class="date-picker">
+                                    <Datepicker/>
+                                </div>
                                 <!-- <span class="input-group-text bg-white">
                                     <i class="fas fa-calendar-alt" id="icon"></i>
                                     </span> -->
@@ -495,8 +500,9 @@ main p{
 </style>
 
 <style>
-#dropdown-1__BV_toggle_{
+#dropdown-1__BV_toggle_, .date-picker{
     width: 100%;
+    height: 40px;
     background: transparent !important;
     background: #FFFFFF;
     border: 0.75px solid #7CB342;
@@ -509,6 +515,7 @@ main p{
 .modal-header, .modal-footer{
     display: none !important;
 }
+
 .apply{
     width: 178.15px;
     height: 56px;
