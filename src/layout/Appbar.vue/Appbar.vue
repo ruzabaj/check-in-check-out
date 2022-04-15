@@ -1,58 +1,56 @@
 <template>
-  <div>
-        <nav class="head-bar d-flex justify-content-between">
-            <div class="left-side d-flex">
-                <div class="bar">
-                    <label for="nav-toggle">
-                        <span>
-                            <img src="bar.svg" alt="" @click="openSidebar()">
-                        </span>
-                    </label>
-                </div>
-                <img class="logo" src="susankya logo 1.jpg" alt="logo of susankya">
-                <p class="name ">Susankya Tech</p>
-            </div>
+    <nav class="head-bar d-flex justify-content-between">
+        <div class="left-side d-flex">
+            <slot name="toggle_btn"></slot>
+            <img class="logo" src="susankya logo 1.jpg" alt="logo of susankya">
+            <p class="name ">Susankya Tech</p>
+        </div>
 
-            <div class="middle-side mt-3 d-flex">
-                <span class="fas fa-search"></span>
-                <input type="text" class="texts" placeholder="Search or type a command">
-            </div>
+        <div class="middle-side mt-3 d-flex">
+            <span class="fas fa-search"></span>
+            <input type="text" class="texts" placeholder="Search or type a command">
+        </div>
 
-            <div class="right-side">
-                <a href="#" class="dropdown-menu m-2"><img class="profile" src="Profile.svg" alt="Profile-pic" @click="dropdown()"></a>
-                <Dropdown title="logout" :items="logout"/>
-                <a href="#" class="link m-2"><img class="notification" src="Vector.jpg" alt="bell"></a>
-                <a href="#" class="link m-2"> <img class="cross" src="topbar-cross.svg" alt="X"></a> 
-            </div>
-        </nav>
-    
-  </div>
+        <div class="right-side">
+            <a href="#" class="dropdown-menu m-2"><img class="profile" src="Profile.svg" alt="Profile-pic" ></a>
+            <!-- <Dropdown title="logout" :items="logout"/> -->
+            <a href="#" class="link m-2"><img class="profile" src="Profile.svg" alt="Profile-pic" v-if="isActive"></a>
+            <a href="#" class="link m-2"><img class="notification" src="Vector.jpg" alt="bell"></a>
+            <a href="#" class="link m-2"> <img class="cross" src="topbar-cross.svg" alt="X"></a> 
+        </div>
+    </nav>
 </template>
 
 <script>
-import dropdown from '../component/dropdown.vue'
+// import dropdown from '../component/dropdown.vue'
 // import { component } from 'vue/types/umd'
+
 
 export default {
     name:'AppBar',
     components: {
-        dropdown
+        // dropdown
+        // sideBar
     },
     data(){
         return{
-            logout: [
-                {
-                    title: 'log-out',
-                    link: '#'
-                },
-                {
-                    title: 'cancel',
-                    link: '#'
-                }
-            ]
+            // logout: [
+            //     {
+            //         title: 'log-out',
+            //         link: '#'
+            //     },
+            //     {
+            //         title: 'cancel',
+            //         link: '#'
+            //     }
+            // ],
+            // isActive: true
         }
+        
+    },methods:{
     }
 }
+    
 </script>
 
 <style>

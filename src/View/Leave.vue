@@ -9,11 +9,13 @@
                             <span>Make a leave request.</span> 
                         <img src="Page.png" class="page">
                         </button>   -->
-                        <b-button v-b-modal.modal-1>Make a leave request.</b-button>
+                        <b-button v-b-modal.modal-1 class="leave-request">Make a leave request</b-button>
                         <img src="Page.png" class="page">
                     <b-modal id="modal-1" title="BootstrapVue">
                     
                     <div class="container">  
+                            <img src="enter.svg" class="enter">
+                        
                         <div class="modal-body">                      
                                                    
                                 <div class="title">
@@ -24,6 +26,9 @@
                                 <b-dropdown id="dropdown-1" text="Dropdown Button" class="m-md-2" style="color:transparent; width:100%"><span class="caret"></span>
                                     <b-dropdown-item>Sick leave</b-dropdown-item>
                                     <b-dropdown-item>Maternity Leave</b-dropdown-item>
+                                    <b-dropdown-item>Paternity Leave</b-dropdown-item>
+                                    <b-dropdown-item>Bereavement Leave</b-dropdown-item>
+                                    <b-dropdown-item>Paternity Leave</b-dropdown-item>
                                     <b-dropdown-item>Paternity Leave</b-dropdown-item>
                                 </b-dropdown>
 
@@ -196,12 +201,13 @@
                             </ul>
                           </nav>          
                     </div>
-                    <div class="footer">
+                    
+                </div>
+                <div class="footer">
                         <div class="copyright">
                             <p><span aria-hidden="true">&#169;</span> 2022 Copyright Susankya Tech</p> 
                         </div>
                     </div> 
-                </div>
             </div>           
         </main>
     </div>
@@ -245,7 +251,8 @@ main{
     color: #FFFFFF;
 }
 .make-leave img{
-    margin-top: -30px;
+    margin-top: -25px;
+    margin-left: -72px;
 }
 .btn-primary{
     border-color: transparent;
@@ -315,7 +322,14 @@ main{
     scrollbar-width: thin;    
     /* background-color: #5E5873; */
 }
-
+.make-leave .btn[data-v-1e58e8e6] {
+    font-size: 18px;
+    font-weight: 500;
+}
+.enter{
+    margin-top: -10px;
+    margin-top: -125px;;
+}
 .leave-days h1{
     /* margin: 30px 20px; */
     font-style: normal;
@@ -445,9 +459,7 @@ tbody .reasons{
     letter-spacing: 0.0048em;
     color: #FFFFFF;
 }
-.make-leave img{
-    margin-top: -30px;
-}
+
 .btn p{
     font-style: normal;
     font-weight: 500;
@@ -495,7 +507,7 @@ main p{
     font-size: 16px;
     line-height:24px;
     color: #B3B5C8;
-    text-align: center;
+    text-align: center !important;
 }
 </style>
 
@@ -506,13 +518,21 @@ main p{
     background: transparent !important;
     background: #FFFFFF;
     border: 0.75px solid #7CB342;
-    box-shadow: 0px 12px 25px rgba(114, 114, 114, 0.05);
+    /* box-shadow: 0px 12px 25px rgba(114, 114, 114, 0.05); */
     border-radius: 8px;
 }
 #dropdown-1__BV_toggle_ .dropdown-menu{
     width: 100%;
 }
-.modal-header, .modal-footer{
+.modal-header{
+        border-bottom: 0px !important;
+}
+.modal-header .close{
+    outline: none !important;
+    border: none !important;
+    background-color: transparent;
+} 
+.modal-header h5, .modal-footer{
     display: none !important;
 }
 

@@ -10,19 +10,27 @@
     
     <template v-else>
       <!-- App bar start -->
-      <nav class="app-bar">
-        <AppBar/>
-      </nav>
+        <app-bar>
+          <template v-slot:toggle_btn>
+            <div class="bar px-3">
+                <label for="nav-toggle">
+                    <span>
+                        <img src="bar.svg" alt="" @click="openSidebar()" >
+                    </span>
+                </label>
+            </div>
+          </template>
+        </app-bar>
       <!-- App bar end -->
 
       <!-- Sidebar Nav start -->
       <nav class="app-sidebar">
-        <SideBar/>
+        <SideBar v-if="isActive" />
       </nav>
       <!-- Sidebar Nav end -->
 
       <!-- Main content start -->
-      <main class="main-content">
+      <main class="main-content" :class="isActive ? 'main-content--active' : ''">
         <router-view/>
       </main>
       <!-- Main content end -->
@@ -45,7 +53,8 @@ export default {
   },
   data: () => ({
     auth: false,
-    user: JSON.parse(localStorage.getItem('user'))
+    user: JSON.parse(localStorage.getItem('user')),
+    isActive: true,
   }),
   
   mounted() {
@@ -65,10 +74,17 @@ export default {
       this.auth = false;
       // this.$router.push({name:'LoginScreen'});
     },
+    
+      openSidebar(){
+          // console.log("open"),
+          this.isActive = !this.isActive
+      }
   },
 }
 </script>
 
 <style>
-
+.main-content--active{
+  padding-left: 250px;
+}
 </style>

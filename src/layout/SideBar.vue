@@ -1,6 +1,7 @@
 <template>
   <div>
-      <div class="side-navbar" :class=" status ? 'toggle-active' : '' ">
+      <!-- <div class="side-navbar" :class=" status ? 'toggle-active' : '' "> -->
+    <div class="side-navbar" :class=" status ? 'toggle-active' : '' ">
         <b-sidebar id="sidebar-no-header"  aria-labelledby="sidebar-no-header-title"  no-header shadow>
         <template >
         <div class="side-menu no-underline">
@@ -12,9 +13,10 @@
                                 <b-button v-b-toggle.collapse-2 class="report-button">
                                     <img :src="menu.img" :alt="menu.text">
                                     <template v-if="status">
-                                    {{menu.text}}
+                                        {{menu.text}}
                                     </template>
                                 </b-button>
+
                                 <b-collapse id="collapse-2">
                                     <b-card class="collapsible-content">
                                         <ul>
@@ -22,13 +24,14 @@
                                                 <router-link :to="`/${child.text}`" class="no-underline" v-b-toggle.collapse-2 >
                                                     <img :src="child.img" :alt="child.text" > 
                                                     <template v-if="status">
-                                                    {{child.text}}
+                                                        {{child.text}}
                                                     </template>
                                                 </router-link>
                                             </li>
                                         </ul>
                                     </b-card>
                                 </b-collapse>
+
                             </div>
                         </template>
                         <template v-else>

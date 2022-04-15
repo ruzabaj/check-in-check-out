@@ -1,6 +1,7 @@
 <template>
   <div>
       <main>
+          <div class="container">
             <div class="cards d-flex justify-content-around">
                 <div class="card-singles">
                     <div style="display: flex; align-items: center; justify-content: space-between;">
@@ -40,18 +41,26 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
-            <div class="images">
+            <div class="sub d-flex justify-content-around mt-3">
+                    <img src="ontime.jpg" alt="ontime" class="ontime img-fluid" > 
+                    <img src="overall.jpg" class="overall img-fluid" alt="overall performance"> 
+                </div>
+                <div class="average mt-3">
+                    <img class="avg img-fluid" src="avg.jpg" alt="average chart here">
+                </div>
+            <p> <span aria-hidden="true">&#169;</span>2022 Copyright Susankya Tech</p>
+        </div>
+            <!-- <div class="images mt-5">
                 <div class="sub d-flex justify-content-around">
-                    <img src="ontime.jpg" alt="ontime" class="ontime img-fluid">
+                    <img src="ontime.jpg" alt="ontime" class="ontime img-fluid"> 
                     <img src="Second Card.jpg" class="second img-fluid"> 
                 </div>
                 <div class="average">
-                    <img class="avg img-fluid" src="avg.jpg">
+                    <img class="avg img-fluid" src="avgs.jpg" alt="average chart here">
                 </div>
-                
-                <p>2022 Copyright at Susankya Tech</p>
-            </div>
+            </div> -->
         </main> 
   </div>
 </template>
@@ -69,7 +78,11 @@ main{
     background-color:  #F8F9FA;
     margin-top: 70px;
     padding: 4rem 0px;
-    height: 200%;
+    height: auto;
+}
+main p{
+    margin: 15px 0px;
+    text-align:  center !important;
 }
 .cards{
     display: grid;
@@ -119,5 +132,18 @@ main{
     width: 96px;
     height: 96px;
     margin-left: -40px;
+}
+.average{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.avg{
+    width: 95%;
+    height: 500px;
+}
+.ontime, .overall{
+    width: 600px;
+    height: 500px;
 }
 </style>

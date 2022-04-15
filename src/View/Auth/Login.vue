@@ -77,11 +77,12 @@ export default {
         validation: {},
         resStore: {}
     }),
+
     methods: {
         login() {
             this.$store.dispatch('login', this.formdata).then( res => {
-                this.$router.push('/')
-                location.reload()
+               if(res) {this.$router.push('/')
+                location.reload()}
             }).catch(err => {
                 if(err.response.data) {
                     this.validation = {
@@ -92,6 +93,7 @@ export default {
         }
     }
 }
+    
 </script>
 
 <style scoped>

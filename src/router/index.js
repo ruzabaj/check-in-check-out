@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../View/Dashboard'
 import Login from '../View/Auth/Login'
 import Leave from '../View/Leave'
+import logout from '../View/logout'
 
 Vue.use(VueRouter)
 
@@ -11,6 +12,14 @@ const routes = [
     path: '/',
     name: 'Dashboard',
     component: Home,
+    meta: {
+      auth: true
+    }
+  },
+  {
+    path: '/logout',
+    name: 'logOut',
+    component : logout,
     meta: {
       auth: true
     }
