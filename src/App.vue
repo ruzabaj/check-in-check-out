@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <template v-if="!$store.getters.authenticated">
-      <!-- Main content start -->
-      <main class="main-content">
-        <router-view/>
-      </main>
-      <!-- Main content end -->
+        <!-- Main content start -->
+        <main class="main-content">
+          <router-view/>
+        </main>
+        <!-- Main content end -->
     </template>
     
     <template v-else>
@@ -24,7 +24,7 @@
       <!-- App bar end -->
 
       <!-- Sidebar Nav start -->
-      <nav class="app-sidebar">
+      <nav class="app-sidebar" :class="status ? 'app-sidebar--open' : ''">
         <SideBar v-if="isActive" />
       </nav>
       <!-- Sidebar Nav end -->
@@ -34,15 +34,19 @@
         <router-view/>
       </main>
       <!-- Main content end -->
+      
+      <!-- For check-in router -->
+      
+      <!-- Check in router end -->
+
     </template>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import AppBar from './layout/Appbar.vue'
 import AppBar from './layout/Appbar.vue/Appbar.vue';
 import SideBar from './layout/SideBar.vue'
+
 // import { CHECK_AUTH } from './store/modules/auth';
 
 export default {
@@ -54,7 +58,7 @@ export default {
   data: () => ({
     auth: false,
     user: JSON.parse(localStorage.getItem('user')),
-    isActive: true,
+    isActive: false,
   }),
   
   mounted() {
@@ -74,7 +78,6 @@ export default {
       this.auth = false;
       // this.$router.push({name:'LoginScreen'});
     },
-    
       openSidebar(){
           // console.log("open"),
           this.isActive = !this.isActive
@@ -85,6 +88,8 @@ export default {
 
 <style>
 .main-content--active{
-  padding-left: 250px;
+  padding-left: 70px;
+  z-index: 100 !important;
 }
+
 </style>

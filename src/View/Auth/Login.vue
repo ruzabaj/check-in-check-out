@@ -3,13 +3,12 @@
     <div class="container1">
         <div class="content">
             <div class="heading d-flex align-items-center">
-                <img class="logo" src="susankya logo 1.jpg" alt="logo">
-                <h1>Susankya Tech</h1>
+                
             </div>
             
             <div class="enter">
                 <h2  class="welcome">Welcome Sir,</h2>
-                <p class="sign-in">Enter your email and password to sign in</p> 
+                <p class="sign-in"> Enter your email and password to sign in</p> 
             </div>
             <form>
                 <div class="row">
@@ -59,8 +58,8 @@
     </div>
 
     <div class="container2 col-sm-3" >
-        <img class="plain" src="MicrosoftTeams-image1">
-        <img class="bubbles" src="MicrosoftTeams-image12">
+        <img class="plain" src="blue.jpg">
+        <!-- <img class="bubbles" src="MicrosoftTeams-image12"> -->
     </div>
   </section>
 </template>
@@ -81,8 +80,11 @@ export default {
     methods: {
         login() {
             this.$store.dispatch('login', this.formdata).then( res => {
-               if(res) {this.$router.push('/')
-                location.reload()}
+                console.log(res)
+               if(res) {
+                    this.$router.push('/')
+                    location.reload()
+                }
             }).catch(err => {
                 if(err.response.data) {
                     this.validation = {
@@ -97,17 +99,17 @@ export default {
 </script>
 
 <style scoped>
+.sign-in{
+    text-align: left !important;;
+}
 section {
     width: 100%;
     height: 100vh;
     display: flex;
 }
 
-.sign-in{
-    text-align: left !important;
-}
 .container1 {
-    width: 41%;
+    width: 40%;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -118,6 +120,7 @@ section {
     width: 60%;
     height: 100vh;
 }
+
 
 /* Heading */
 .logo {
@@ -145,7 +148,7 @@ section {
     padding: 05px 0px;
     font-weight: bold;
     font-size: 32px;
-    color: #7CB342;    
+    color: rgb(30,30,113);    
 }
 
 .enter p {
@@ -166,7 +169,7 @@ input[type=text]{
     width: 447px;
     height: 48px;
     background: #FFFFFF;
-    border: 0.75px solid #7CB342;
+    border: 0.75px solid rgb(30,30,113);
     box-shadow: 0px 12px 25px rgba(114, 114, 114, 0.05);
     border-radius: 8px;
     outline: none;
@@ -182,7 +185,7 @@ input[type=password] {
     width: 447px;
     height: 48px;
     background: #FFFFFF;
-    border: 0.75px  solid #7CB342;
+    border: 0.75px  solid rgb(30,30,113);
     box-shadow: 0px 12px 25px rgba(114, 114, 114, 0.05);
     border-radius: 8px;
     outline: none;
@@ -232,7 +235,7 @@ input[type=password]::placeholder{
   }
 
   input:checked + .slider {
-    background: linear-gradient(270.25deg, #5F6C37 -1.9%, #7CB342 99.74%);
+    background: linear-gradient(270.25deg, #1e25ed -1.9%, #7742b3 99.74%);
     border-radius: 97.7397px;
   }
 
@@ -277,13 +280,13 @@ input[type=submit]{
     font-size: 15px;
     line-height: 30px;
     padding: 10px 10px;
-    background: linear-gradient(270.25deg, #5F6C37 -1.9%, #7CB342 99.74%);
+    background: linear-gradient(270.25deg, #2d2dd9 -1.9%, #875ed9 99.74%);
     box-shadow: 0px 10px 30px rgba(11, 85, 19, 0.15);
     border-radius: 15px;
 
 }
 input[type=submit]:hover{
-    background: #82b34f;    ;
+    background: rgb(30,30,113);    ;
 }
 /* Right side Images */
 .container2 img{

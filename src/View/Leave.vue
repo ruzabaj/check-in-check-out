@@ -5,81 +5,85 @@
             <div class="container">
                 <div class="request">
                     <div class="make-leave">
-                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" style="float: left;">
-                            <span>Make a leave request.</span> 
-                        <img src="Page.png" class="page">
-                        </button>   -->
                         <b-button v-b-modal.modal-1 class="leave-request">Make a leave request</b-button>
                         <img src="Page.png" class="page">
+
                     <b-modal id="modal-1" title="BootstrapVue">
-                    
-                    <div class="container">  
-                            <img src="enter.svg" class="enter">
+                        <div class="container">  
+                            <div class="modal-header border-0">
+                                <router-link to="./leave">
+                                    <img style="height: 10px" src="modal-backicon.png"/>
+                                </router-link>
+                                <a href="#">
+                                    <img style="height: 50px" src="modal-crossicon.png" class="" data-bs-dismiss="modal" aria-label="Close" />
+                                </a>
+                            </div>
                         
                         <div class="modal-body">                      
-                                                   
-                                <div class="title">
-                                    <h4>Apply For Leave</h4>
+                            <h4>Apply For Leave</h4>                                                 
+                                <div id="leave-category">
+                                    <label for="leave category" id="leave-category" class="heading">Leave Category</label>
+                                    <div>
+                                        <select id="selected" v-model="answer">
+                                            <option value="0"></option>
+                                            <option value="1">Paternity Leave</option>
+                                            <option value="2">Sick leave</option>
+                                            <option value="3">Maternity Leave</option>
+                                            <option value="4">Bereavement Leave</option>
+                                            <option value="5">Personal Leave</option>
+                                            <option value="6">Annual Leave</option>
+                                            <option value="7">Compensatory Leave</option>
+                                            <option value="8">Emergency Leave</option>
+                                            <option value="8">Compulsory Leave</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            <label for="leave category" class="heading ps-3">Leave Category</label>
-                            <div class="dropdown p-3"> 
-                                <b-dropdown id="dropdown-1" text="Dropdown Button" class="m-md-2" style="color:transparent; width:100%"><span class="caret"></span>
-                                    <b-dropdown-item>Sick leave</b-dropdown-item>
-                                    <b-dropdown-item>Maternity Leave</b-dropdown-item>
-                                    <b-dropdown-item>Paternity Leave</b-dropdown-item>
-                                    <b-dropdown-item>Bereavement Leave</b-dropdown-item>
-                                    <b-dropdown-item>Paternity Leave</b-dropdown-item>
-                                    <b-dropdown-item>Paternity Leave</b-dropdown-item>
-                                </b-dropdown>
-
-                            </div>
-
-                            <label for="leave type" class="heading ps-3">Leave Type</label>
-                            <div class="dropdown p-3"> 
-                                <b-dropdown id="dropdown-1" text="Dropdown Button" class="m-md-2" style="color:transparent; width:100%"><span class="caret"></span>
-                                    <b-dropdown-item>Half Day</b-dropdown-item>
-                                    <b-dropdown-item>Full Day</b-dropdown-item>
-                                    <b-dropdown-item>Custom</b-dropdown-item>
-                                </b-dropdown>
-
-                            </div>
-                            <div class="from">
+                                <div id="leave-type">
+                                    <label for="leave type" id="leave-type" class="heading">Leave Type</label>
+                                    <div>
+                                        <select id="selected" v-model="answer">
+                                        <option value="0"></option>
+                                        <option value="1">Half Day</option>
+                                        <option value="2">Full Day</option>
+                                        <option value="3">Custom</option>
+                                    </select>
+                                    </div>
+                                </div>
+                       
+                            <div id="from">
                                 <div class="heading">
-                                    <label for="from">From</label>
+                                    <label for="from" class="heading">From</label>
                                 </div>
-                                <div class="date-picker">
+                                <div class="picker">
+                                    <div class="date-picker d-flex" id="selected">
                                     <Datepicker/>
+                                    <span><img src="calendar.svg" id="calendar"></span>
                                 </div>
-                                
-                                
-                                <!-- <span class="input-group-text bg-white">
-                                    <i class="fas fa-calendar-alt" id="icon"></i>
-                                    </span> -->
+                                </div>
                             </div>
     
-                            <div class="to">
-                                <div class="heading">
-                                    <label for="to">To</label>
+                            <div id="to">
+                                <div class="heading" >
+                                    <label for="to" class="heading">To</label>
                                 </div>
-                                <div class="date-picker">
+                                <div class="date-picker d-flex" id="selected" >
                                     <Datepicker/>
+                                    <span><img src="calendar.svg" id="calendar"></span>
                                 </div>
-                                <!-- <span class="input-group-text bg-white">
-                                    <i class="fas fa-calendar-alt" id="icon"></i>
-                                    </span> -->
                             </div>
-                            <div class="row ">
+
+                            <div id="reason-heading">
                                 <div class="heading">
-                                    <label for="subject">Reason</label>
+                                    <label for="subject" class="heading">Reason</label>
                                 </div>
                                 <div class="reason">
-                                    <textarea id="reason" class="reasons" name="reason" placeholder="Write something.."
-                                        style="height:100px; width: 100%;"></textarea>
+                                    <textarea iid="selected" class="reason-placeholder" name="reason" placeholder="Write something.." v-model="answer"></textarea>
                                 </div>
                             </div>
+
                             <div class="buttons d-flex">
-                                <button class="apply me-2">Apply</button>
-                                <button class="cancel ms-2">Cancel</button>
+                                <button type="submit" class="apply" @click="apply()" >Apply</button>
+                                <button  type="reset" class="cancel ">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -88,11 +92,11 @@
                     </div> 
                 </div>     
                 
-                <div class="leave">
+                <!-- <div class="leave">
                     <div class="on-leave">
                         <img class="onleave" src="Leave.png">
                     </div>
-                </div>
+                </div> -->
             
                 <div class="leave-table">
                     <div class="cards">
@@ -108,8 +112,9 @@
                                         </tr>
                                     </thead>
     
-                                    <tbody>
-                                        <tr class="reasons">
+                                    <tbody >
+                                        <!-- v-for="(applicants,index) in application" :key="index" -->
+                                        <tr class="reasons"  >
                                             <td>14/06/21</td>
                                             <div id="days"><td ><span class="full-day">Full Day</span></td></div>
                                             <td>Severe cold and fever followed by....</td>
@@ -124,41 +129,13 @@
                                             <td> <span class="custom-day">Custom</span></td>
                                             <td>Family Event have to attend for 5 days</td>
                                         </tr>
-                                        <tr class="reasons">
-                                            <td>14/06/21</td>
-                                            <td><span class="full-day">Full Day</span></td>
-                                            <td>Severe cold and fever followed by....</td>
-                                        </tr>
-                                        <tr class="reasons">
-                                            <td>14/06/21</td>
-                                            <td><span class="full-day">Full Day</span></td>
-                                            <td>Official Work for......</td>
-                                        </tr>
-                                        <tr class="reasons">
-                                            <td>14/06/21</td>
-                                            <td><span class="half-day">Half Day</span></td>
-                                            <td>Family Event have to attend for 5 days</td>
-                                        </tr>
-                                        <tr class="reasons">
-                                            <td>14/06/21</td>
-                                            <td> <span class="custom-day">Custom</span></td>
-                                            <td>Severe cold and fever followed by....</td>
-                                        </tr>
-                                        <tr class="reasons" style="background: #F2F4F3;">
-                                            <td>14/06/21</td>
-                                            <td><span class="half-day">Half Day</span></td>
-                                            <td>Official Work for.....</td>
-                                        </tr>
-                                        <tr class="reasons">
-                                            <td>14/06/21</td>
-                                            <td ><span class="full-day">Full Day</span></td>
-                                            <td>Family Event have to attend for 5 days</td>
-                                        </tr>
-                                        <tr class="reasons">
-                                            <td>14/06/21</td>
-                                            <td> <span class="custom-day">Custom</span></td>
-                                            <td>Family Event have to attend for 5 days</td>
-                                        </tr>
+                                        <!-- <tr class="reasons">
+                                            <td>{{applicants.to_date}}</td>
+                                            <td>{{applicants.from_date}}</td>
+                                            <td><span class="full-day">{{applicants.leave_category}}</span></td>
+                                            <td>{{applicants.leave_message}}</td>
+                                        </tr> -->
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -186,7 +163,7 @@
                               <li class="page-item"><a class="page-link" href="#">5</a></li>
                               <li class="page-item"><a class="page-link" href="#">6</a></li>
                               <li class="page-item"><a class="page-link" href="#">7</a></li>
-                              <li class="page-item"><a class="page-link"  href="#">8</a></li>
+                              <li class="page-item"><a class="page-link" href="#">8</a></li>
                               <li class="page-item"><a class="page-link" href="#">9</a></li>
                             <li class="page-item">
                                 <a class="page-link" href="#" aria-label="Previous">
@@ -201,13 +178,12 @@
                             </ul>
                           </nav>          
                     </div>
-                    
                 </div>
-                <div class="footer">
+                <!-- <div class="footer">
                         <div class="copyright">
-                            <p><span aria-hidden="true">&#169;</span> 2022 Copyright Susankya Tech</p> 
+                            <p><span aria-hidden="true">&#169;</span> 2022 Copyright </p> 
                         </div>
-                    </div> 
+                </div>  -->
             </div>           
         </main>
     </div>
@@ -220,7 +196,37 @@ export default {
     name:'leaveS',
      components: {
     Datepicker
+  },
+  data() {
+      return{
+        answer: '',
+        application:'',
+        formdata:[]
+      }
+  },
+  methods: {
+    //   reason: {}
+    apply(){
+ 
+        if(document.getElementById("selected").value== null || document.getElementById("selected").value==""){
+            alert("Please select all the options and try again")
+        }
+        console.log(this.formdata) 
+    }
+  },
+  created(){
+      this.$store.dispatch('leaveform', this.formdata)
+      ,
+        this.$store.dispatch('leaveapply').then(res=>{
+            this.application=res
+        })
+
   }
+//   computed:{
+//       apply(){
+//           if(document.getElementById(this.reason))
+//       }
+//   }
 }
 </script>
 
@@ -238,7 +244,7 @@ main{
 .make-leave .btn{
     Width :300px;
     Height :54px;
-    background: linear-gradient(270.25deg, #5F6C37 -1.9%, #7CB342 99.74%);
+    background: linear-gradient(270.25deg, #100051 -1.9%, #9942c5 99.74%);
     box-shadow: 0px 3px 5px #9CB087;
     border-radius: 15px;
 }
@@ -318,13 +324,33 @@ main{
 .leave-types{
     height: 400px;
     overflow-y:scroll;
-    scrollbar-color: green;
+    scrollbar-color: rgb(30, 30, 133);
     scrollbar-width: thin;    
     /* background-color: #5E5873; */
 }
 .make-leave .btn[data-v-1e58e8e6] {
     font-size: 18px;
     font-weight: 500;
+}
+input [type=text]{
+    background: none !important;
+    width: 100%;
+}
+.date-picker #span{
+    height: 28px;
+    margin-left:-26px;
+    z-index:100;
+}
+.picker{
+    background: none !important;
+    width: 100%;
+}
+/* button{
+    width: 385px !important;
+} */
+
+#dropdown-1__BV_toggle_ .dropdown-menu{
+    width: 800px !important;
 }
 .enter{
     margin-top: -10px;
@@ -349,7 +375,8 @@ tbody tr{
 }
 tbody tr:hover{
     width: 10px;
-    border-left-color: #7CB342 ;
+    border-left-color: rgb(30, 30, 133);
+    background-color: whitesmoke;
 }
 /* For horizontal line under table */
 table thead td {
@@ -421,7 +448,7 @@ tbody .reasons{
     background-color: #E2E8F0;
 }
 .pagination a:active{
-    background: #7CB342;
+    background: rgb(30, 30, 133);
     border-radius: 29px;
     color: white;
 }
@@ -447,7 +474,7 @@ tbody .reasons{
 .make-leave .btn{
     Width :300px;
     Height :54px;
-    background: linear-gradient(270.25deg, #5F6C37 -1.9%, #7CB342 99.74%);
+    background: linear-gradient(270.25deg, #4919b7 -1.9%, #9542b3 99.74%);
     box-shadow: 0px 3px 5px #9CB087;
     border-radius: 15px;
 }
@@ -469,12 +496,22 @@ tbody .reasons{
     color: #FFFFFF;
     text-align: center;
 }
-
+.modal-body{
+    top: -45px;
+}
+/* heeading name for each input and button */
+/* .modal-body label{
+    padding: 10px;
+} */
 </style>
 
 <style>
-.element.style{
+/* .element.style{
     padding: 16px 0 0 0;
+} */
+.modal-dialog .modal-content{
+    max-height: 840px !important;
+    border-radius: 10px;
 }
 .pagination{
     margin-top: 02%;
@@ -493,7 +530,7 @@ tbody .reasons{
     background-color: #E2E8F0;
 }
 .pagination a:active{
-    background: #7CB342;
+    background: rgb(30, 30, 133);
     border-radius: 29px;
     color: white;
 }
@@ -512,44 +549,93 @@ main p{
 </style>
 
 <style>
-#dropdown-1__BV_toggle_, .date-picker{
-    width: 100%;
-    height: 40px;
-    background: transparent !important;
+.reason textarea{
+    height: 144px;
+    width: 400px;
     background: #FFFFFF;
-    border: 0.75px solid #7CB342;
-    /* box-shadow: 0px 12px 25px rgba(114, 114, 114, 0.05); */
+    border: 0.75px solid #F4F4F4;
+    box-shadow: 0px 12px 25px rgba(114, 114, 114, 0.05);
     border-radius: 8px;
 }
-#dropdown-1__BV_toggle_ .dropdown-menu{
-    width: 100%;
+select{
+    width: 400px;
+    height: 40px;
+    border: 0.75px solid rgb(30, 30, 133);
+    box-shadow: 0px 12px 25px rgba(114, 114, 114, 0.05);
+    border-radius: 8px;
 }
 .modal-header{
         border-bottom: 0px !important;
 }
-.modal-header .close{
-    outline: none !important;
+.modal-header button{
+    display: none !important;
     border: none !important;
     background-color: transparent;
 } 
 .modal-header h5, .modal-footer{
     display: none !important;
 }
-
-.apply{
-    width: 178.15px;
-    height: 56px;
-    background: linear-gradient(270.25deg, #5F6C37 -1.9%, #7CB342 99.74%);
+ /* apply and cancel are button of leave modal */
+.buttons .apply{
+    width: 165.15px;
+    height: 50px;
+    margin: 10px;
+    background: linear-gradient(270.25deg, #280055 -1.9%, #793fdd 99.74%);
     box-shadow: 0px 3px 5px #9CB087;
     border-radius: 10px;
     color: #FFFFFF;
 }
-.cancel{
+.buttons .cancel{
     background: #FFFFFF;
     box-shadow: 0px 7px 23px rgba(0, 0, 0, 0.05);
     border-radius: 15px;
-    width: 178px;
-    height: 56spx;
-    color:  #7CB342;
+    width: 165px;
+    height: 50px;
+    margin: 10px;
+    color:  rgb(30, 30, 133);
+}
+</style>
+
+<style>
+#leave-type, #leave-category, #to, #from, #reason-heading, h4{
+    margin: 1px 0px;
+    padding: 10px;
+}
+
+/* datepicker css */
+.vdp-datepicker input{
+    width:391px !important;
+    height: 40px;
+    z-index: -1;
+    width: 447px;
+    border: 0.75px solid rgb(30, 30, 133);
+    box-shadow: 0px 12px 25px rgba(114, 114, 114, 0.05);
+    border-radius: 8px;
+}
+.vdp-datepicker__calendar{
+    width: 395px !important;
+}
+/* for button in the modal */
+#dropdown-1{
+    width: 387px;
+    height: 40px;
+    background: transparent !important;
+    background: #FFFFFF;
+    border: 0.75px solid rgb(30, 30, 133);
+    box-shadow: 0px 12px 25px rgba(114, 114, 114, 0.05);
+    border-radius: 8px;
+}
+.btn .dropdown-menu{
+    width: 350px !important;
+}
+.btn-secondary{
+    background-color: transparent !important;;
+}
+.btn-secondary:hover{
+    background-color: transparent !important;
+    color: white;
+}
+#dropdown-1__BV_toggle_ .dropdown-menu{
+    width: 100%;
 }
 </style>

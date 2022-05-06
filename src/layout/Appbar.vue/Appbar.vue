@@ -2,20 +2,30 @@
     <nav class="head-bar d-flex justify-content-between">
         <div class="left-side d-flex">
             <slot name="toggle_btn"></slot>
-            <img class="logo" src="susankya logo 1.jpg" alt="logo of susankya">
-            <p class="name ">Susankya Tech</p>
+            <p class="name ">Office App</p>
         </div>
 
-        <div class="middle-side mt-3 d-flex">
+        <!-- <div class="middle-side mt-3 d-flex">
             <span class="fas fa-search"></span>
             <input type="text" class="texts" placeholder="Search or type a command">
+        </div> -->
+
+        <div class="search-div">
+            <div class="search">
+                <div>
+                        <img src="search.png">
+                </div>
+                <div>
+                    <input type="text" class="searchTerm" placeholder="Search or type a command">
+                </div>
+            </div>
         </div>
 
         <div class="right-side">
-            <a href="#" class="dropdown-menu m-2"><img class="profile" src="Profile.svg" alt="Profile-pic" ></a>
-            <!-- <Dropdown title="logout" :items="logout"/> -->
-            <a href="#" class="link m-2"><img class="profile" src="Profile.svg" alt="Profile-pic" v-if="isActive"></a>
-            <a href="#" class="link m-2"><img class="notification" src="Vector.jpg" alt="bell"></a>
+            <!-- <a href="#" class="dropdown-menu m-2"><img class="profile" src="Profile.svg" alt="Profile-pic" v-if="isActive" ></a> -->
+            <Dropdown title="logout" :items="logout"/>
+            <!-- <a href="#" class="link m-2"><img class="profile" src="Profile.svg" alt="Profile-pic"></a>
+            <a href="#" class="link m-2"><img class="notification" src="Vector.jpg" alt="bell"></a> -->
             <a href="#" @click="logout()" class="link m-2"> <img class="cross" src="topbar-cross.svg" alt="X"></a> 
         </div>
     </nav>
@@ -34,17 +44,7 @@ export default {
     },
     data(){
         return{
-            // logout: [
-            //     {
-            //         title: 'log-out',
-            //         link: '#'
-            //     },
-            //     {
-            //         title: 'cancel',
-            //         link: '#'
-            //     }
-            // ],
-            // isActive: true
+            
         }
         
     },methods:{
@@ -98,7 +98,7 @@ main p {
 }
 
 /* Search box */
-.middle-side{
+/* .middle-side{
     margin:08px;  
     width: 468px;
     height: 45px;  
@@ -123,7 +123,31 @@ button[type="submit"] {
     border: none;
     outline:none;
     background-color:transparent;
+} */
+
+/* New search input */
+.search-div{
+   width: 486px;
+   background: rgba(223, 223, 224, 0.15);
+   border-radius: 4px;
 }
+.search-div .search {
+  
+   position: relative;
+   display: flex;
+   justify-content: center;
+   
+ }
+ .search-div .searchTerm {
+   width: 108%;
+   background-color: transparent;
+   opacity: 15%;
+   border: none;
+   padding: 5px;
+   outline: none;
+   
+ }
+
 /* Right side of navbar */
 .right-side{
     margin: 0px 40px ;

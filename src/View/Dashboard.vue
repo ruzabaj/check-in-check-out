@@ -7,8 +7,8 @@
                     <div style="display: flex; align-items: center; justify-content: space-between;">
                         <img class="diagram" src="dashboard-projects.svg">
                         <div style="padding-right: 20px;">
-                            <div class="sub-title mt-1">Total Projects</div> 
-                            <span class="numbers p-3">9</span>
+                            <div class="sub-title mt-1"  >Total Projects</div> 
+                            <span class="numbers p-3" >{{projects.data.projects}}</span>
                         </div>
                     </div>
                 </div>
@@ -17,8 +17,8 @@
                     <div style="display: flex; align-items: center; justify-content: space-between;">
                     <img class="stop-watch" src="MicrosoftTeams-image3">
                         <div style="padding-right: 10px;">
-                            <div class="sub-title mt-1">Total Working Hours</div>
-                            <span class="numbers  p-3">486</span>
+                            <div class="sub-title mt-1">Total Working Days</div>
+                            <span class="numbers  p-3">{{projects.data.working_days}}</span>
                         </div>
                     </div>
                 </div>
@@ -26,8 +26,9 @@
                     <div style="display: flex; align-items: center; justify-content: space-between;">
                     <img class="leave" src="dashboard-leave.svg"> 
                         <div style="padding-right: 10px;">
-                            <div class=" sub-title mt-1"> Total Leave Days</div>
-                            <span class="numbers  p-3">5</span>                          
+                            <div class=" sub-title mt-1"> Total Absent Days</div>
+                            <span class="numbers  p-3" >{{projects.data.absent_days}}</span>  
+                                                    <!--v-if="data.data" {{data.data['absent_days]}}  -->
                         </div>
                     </div>
                 </div>
@@ -37,38 +38,57 @@
                     <img class="present" src="MicrosoftTeams-image2">
                         <div style="padding-right: 10px;">
                             <div class="sub-title mt-1"> Total Present Days</div>
-                            <span class="numbers p-3">16</span>                           
+                            <span class="numbers p-3" >{{projects.data.present_days}}</span>                           
                         </div>
                     </div>
                 </div>
                 
             </div>
-            <div class="sub d-flex justify-content-around mt-3">
+            <!-- <div class="sub d-flex justify-content-around mt-3">
                     <img src="ontime.jpg" alt="ontime" class="ontime img-fluid" > 
                     <img src="overall.jpg" class="overall img-fluid" alt="overall performance"> 
                 </div>
                 <div class="average mt-3">
                     <img class="avg img-fluid" src="avg.jpg" alt="average chart here">
-                </div>
-            <p> <span aria-hidden="true">&#169;</span>2022 Copyright Susankya Tech</p>
-        </div>
-            <!-- <div class="images mt-5">
-                <div class="sub d-flex justify-content-around">
-                    <img src="ontime.jpg" alt="ontime" class="ontime img-fluid"> 
-                    <img src="Second Card.jpg" class="second img-fluid"> 
-                </div>
-                <div class="average">
-                    <img class="avg img-fluid" src="avgs.jpg" alt="average chart here">
-                </div>
+                </div> -->
+
+            <!-- <div  class="shapes">
+                <img  src="blue-image.jpg" alt="">
             </div> -->
+            <p> <span aria-hidden="true">&#169;</span>2022 Copyright </p>
+        </div>
         </main> 
   </div>
 </template>
 
 <script>
+// import axios from 'axios'
+//  import { mapGetters } from 'vuex'
 
 export default {
     name: 'dashBoard',
+    data(){
+        return{
+            projects:{}
+            // projects:[],
+            // errors:[],
+            // results:[]
+        }
+        
+    },
+//      computed: {
+//     ...mapGetters({
+//       userdata: 'userdata',
+//     })
+//   }
+
+// dispatch from the store
+    created(){
+        this.$store.dispatch('dashuser').then(res=>{
+            this.projects=res
+        })
+     }
+   
 }
 </script>
 
@@ -82,7 +102,7 @@ main{
 }
 main p{
     margin: 15px 0px;
-    text-align:  center !important;
+    /* text-align:  center !important; */
 }
 .cards{
     display: grid;

@@ -1,7 +1,6 @@
 <template>
   <div>
-      <!-- <div class="side-navbar" :class=" status ? 'toggle-active' : '' "> -->
-    <div class="side-navbar" :class=" status ? 'toggle-active' : '' ">
+    <div class="side-navbar">
         <b-sidebar id="sidebar-no-header"  aria-labelledby="sidebar-no-header-title"  no-header shadow>
         <template >
         <div class="side-menu no-underline">
@@ -60,13 +59,13 @@ export default {
         sidebarMenu: [
             {
                 img: 'Dashboard.svg',
-                text: 'Dashboard',
+                text: '',
                 hasChild: false,
                 children: []
             },
             {
                 img: 'Clock.svg',
-                text: 'Check In/Check Out',
+                text: 'Check',
                 hasChild: false,
                 children: []
             },
@@ -77,34 +76,38 @@ export default {
                 children: []
             },
             {
-                img: 'Report.svg',
-                text: 'Reports',
-                hasChild: true,
-                children: [
-                    {
-                        img: 'file.png',
-                        text: 'Working Hours'
-                    },
-                    {
-                        img: 'Performance.png',
-                        text: 'Performance'
-                    },
-                ]
+                // img: 'calendar.svg',
+                // text: 'Calendar',
+                // hasChild: false,
+                // children: [
+                //     {
+                //         img: 'file.png',
+                //         text: 'Working Hours'
+                //     },
+                //     {
+                //         img: 'Performance.png',
+                //         text: 'Performance'
+                //     },
+                // ]
             },
-            {
-                img: 'Announcement.svg',
-                text: 'Announcements'
-            }
+            // {
+            //     img: 'Announcement.svg',
+            //     text: 'Announcements'
+            // }
         ]
     }),
     created() {
         this.$bus.on('main-sidebar-toggle', (data) => {
             this.status = data;
+            // this.status=!this.status;
         })
         
     },
     destroyed() {
-        this.$bus.off('main-sidebar-toggle');
+        this.$bus.on('main-sidebar-toggle');
+    },
+    computed(){
+        this.status=!this.status;
     }
 }
 </script>
@@ -132,7 +135,7 @@ export default {
 }
 .navbar-nav .item:hover{
     background-color: white;
-    border-left-color: #7CB342;
+    border-left-color: rgb(30, 30, 133);
 }
 
  .dropdown-content .item{
@@ -144,40 +147,6 @@ export default {
     margin-left: 0 !important ;
 }
 
-/* CSS for sidebar 
-.switches ul{
-    margin-top:28%;
-    border: 1px #7CB342;
-    list-style: none;
-}
-.switches ul li{
-    display: block; 
-    
-    padding: 10px;
-    line-height: 24px; 
-    display: flex;
-    align-items: center;
-}
-.switches ul li a, .dropdown-content ul li a{
-    font-family: Plus Jakarta Sans;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    color: black;
-    border-left: 08px solid transparent;
-} */
-/* .dropdown-content .btn:active{
-    font-size: 30px;
-} 
-.switches ul li:hover{
-    padding-left: 0;
-    text-decoration: none;
-    background-color: white;
-    border-left-color:  #7CB342;
-    color: black;
-    box-shadow: 0px 3.5px 5.5px rgba(0, 0, 0, 0.02);
-}
-*/
 .collapsible-content{
     background-color: #FCFDFC;
     outline: none !important;
@@ -198,7 +167,7 @@ export default {
 }
 .report-button:hover{
     background-color: white;
-    border-left-color:  #7CB342;
+    border-left-color:  rgb(30, 30, 133);
     color: black;
 }
 .title{
