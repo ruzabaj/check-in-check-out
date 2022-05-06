@@ -16,7 +16,7 @@
             <!-- <Dropdown title="logout" :items="logout"/> -->
             <a href="#" class="link m-2"><img class="profile" src="Profile.svg" alt="Profile-pic" v-if="isActive"></a>
             <a href="#" class="link m-2"><img class="notification" src="Vector.jpg" alt="bell"></a>
-            <a href="#" class="link m-2"> <img class="cross" src="topbar-cross.svg" alt="X"></a> 
+            <a href="#" @click="logout()" class="link m-2"> <img class="cross" src="topbar-cross.svg" alt="X"></a> 
         </div>
     </nav>
 </template>
@@ -48,6 +48,11 @@ export default {
         }
         
     },methods:{
+        logout(){
+            localStorage.removeItem('user')
+            localStorage.removeItem('token')
+            location.reload()
+        }
     }
 }
     

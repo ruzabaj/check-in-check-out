@@ -36,7 +36,7 @@
                     <div style="display: flex; align-items: center; justify-content: space-between;">
                     <img class="present" src="MicrosoftTeams-image2">
                         <div style="padding-right: 10px;">
-                            <span class="sub-title mt-1"> Total Present Days</span>
+                            <div class="sub-title mt-1"> Total Present Days</div>
                             <span class="numbers p-3">16</span>                           
                         </div>
                     </div>

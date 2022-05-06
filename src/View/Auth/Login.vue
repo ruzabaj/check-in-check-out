@@ -9,7 +9,7 @@
             
             <div class="enter">
                 <h2  class="welcome">Welcome Sir,</h2>
-                <p>Enter your email and password to sign in</p> 
+                <p class="sign-in">Enter your email and password to sign in</p> 
             </div>
             <form>
                 <div class="row">
@@ -103,8 +103,11 @@ section {
     display: flex;
 }
 
+.sign-in{
+    text-align: left !important;
+}
 .container1 {
-    width: 40%;
+    width: 41%;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -115,11 +118,6 @@ section {
     width: 60%;
     height: 100vh;
 }
-
-/* .content {
-    margin-top: 50px;
-
-} */
 
 /* Heading */
 .logo {
